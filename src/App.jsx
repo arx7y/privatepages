@@ -26,11 +26,11 @@ const App = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const DefaultRoute = () => {
-    return isAuthenticated ? (
-      <Navigate replace to="/home" />
-    ) : (
-      <Navigate replace to="/login" />
-    );
+    // return isAuthenticated ? (
+    return <Navigate replace to="/home" />;
+    // ) : (
+    // <Navigate replace to="/login" />
+    // );
   };
 
   return (
@@ -40,19 +40,19 @@ const App = () => {
         <Route index element={<DefaultRoute />} />
 
         {/* Public routes */}
-        <Route element={<PublicOnlyRoute />}>
+        {/* <Route element={<PublicOnlyRoute />}>
           <Route path="login" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="reset" element={<ResetPassword />} />
-        </Route>
+        </Route> */}
 
         {/* Unauthorized route */}
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* Private routes */}
-        <Route element={<RequireAuth />}>
-          <Route path="home" element={<Home />} />
-        </Route>
+        {/* <Route element={<RequireAuth />}> */}
+        <Route path="home" element={<Home />} />
+        {/* </Route> */}
 
         {/* Catch all */}
         <Route path="*" element={<NotFound />} />
